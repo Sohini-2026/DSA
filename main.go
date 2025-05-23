@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"https://github.com/Sohini-2026/DSA/recursive"
+	"github.com/Sohini-2026/DSA/recursive"
 )
 
 func main() {

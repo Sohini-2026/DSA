@@ -15,3 +15,10 @@ func FindHeightOfBT(root *Node) int {
 
 	return 1 + max(leftHeight, rightHeight)
 }
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
