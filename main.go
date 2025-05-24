@@ -11,4 +11,9 @@ func main() {
 	recursive.Print1ToN(5)
 	fmt.Println("Fibonacci of 5 is ", recursive.Fibonacci(5))
 	fmt.Println("Height of BT is ", recursive.FindHeightOfBT(&recursive.Node{Data: 1, Left: &recursive.Node{Data: 2}, Right: &recursive.Node{Data: 3}}))
+	fmt.Println("Sorting array using recursion")
+	arr := []int{5, 2, 9, 1, 5, 6}
+	recursive.SortArray(&arr)
+	fmt.Println("Sorted array is ", arr)
+
 }
