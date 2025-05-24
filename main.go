@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 
+	"github.com/Sohini-2026/DSA/baseDS"
 	"github.com/Sohini-2026/DSA/recursive"
 )
 
@@ -17,7 +18,15 @@ func main() {
 	recursive.SortArray(&arr)
 	fmt.Println("Sorted array is ", arr)
 	fmt.Println("Sorting stack using recursion")
-	stack := &recursive.Stack{Items: []int{1, 5, 2, 0}}
+	stack := &baseDS.Stack{Items: []int{1, 5, 2, 0}}
 	recursive.SortStack(stack)
 	fmt.Println("Sorted stack is ", stack.Items)
+	fmt.Println("Deleting middle element of stack using recursion")
+	deleteStack := &baseDS.Stack{Items: []int{1, 2, 3, 4, 5}}
+	recursive.DeleteMiddleElementOfStack(deleteStack)
+	fmt.Println("Stack after deleting middle element is ", deleteStack.Items)
+	fmt.Println("Reversing stack using recursion")
+	reverseStack := &baseDS.Stack{Items: []int{1, 2, 3, 4, 5}}
+	recursive.ReverseStack(reverseStack)
+	fmt.Println("Reversed stack is ", reverseStack.Items)
 }
