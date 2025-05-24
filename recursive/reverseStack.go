@@ -1,6 +1,10 @@
 package recursive
 
-import "github.com/Sohini-2026/DSA/baseDS"
+import (
+	"fmt"
+
+	"github.com/Sohini-2026/DSA/baseDS"
+)
 
 func ReverseStack(s *baseDS.Stack) {
 	if s.IsEmpty() {
@@ -8,7 +12,7 @@ func ReverseStack(s *baseDS.Stack) {
 	}
 
 	top := s.Pop()
-
+	fmt.Println("Top element is ", top, " and stack is ", s.Items)
 	ReverseStack(s)
 
 	insertAtBottom(s, top)
@@ -20,6 +24,8 @@ func insertAtBottom(s *baseDS.Stack, item int) {
 	}
 
 	temp := s.Pop()
+	fmt.Println("Popped element is ", temp, " and stack is ", s.Items)
 	insertAtBottom(s, item)
 	s.Push(temp)
+	fmt.Println("Pushed element is ", temp, " and stack is ", s.Items)
 }
