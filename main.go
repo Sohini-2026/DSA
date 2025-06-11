@@ -2,12 +2,14 @@ package main
 
 import (
 	"fmt"
+	"sort"
 
 	"github.com/Sohini-2026/DSA/baseDS"
 	"github.com/Sohini-2026/DSA/recursive"
 )
 
 func main() {
+
 	fmt.Println("What did u return ?", recursive.Print1ToN(5))
 	recursive.Print1ToN(5)
 	fmt.Println("Fibonacci of 5 is ", recursive.Fibonacci(5))
@@ -29,4 +31,18 @@ func main() {
 	reverseStack := &baseDS.Stack{Items: []int{1, 2, 3, 4, 5}}
 	recursive.ReverseStack(reverseStack)
 	fmt.Println("Reversed stack is ", reverseStack.Items)
+
+	fmt.Println("Tower of Hanoi with 3 disks")
+	recursive.TowerOfHanoi(3, "A", "C", "B")
+	fmt.Println("Kth symbol in grammar for n=4 and k=3 is ", recursive.GetKthSymbolInGrammer(4, 1))
+
+	fmt.Printf("Print all subsets of array %v\n", []string{"a", "b", "c"})
+	recursive.PrintAllSubsets1("abc", "")
+
+	m := make(map[string]bool)
+	result := []string{}
+	recursive.PrintUniqueSubsetsLexicographially("abb", "", m, &result)
+	sort.Strings(result)
+	fmt.Println(result)
+
 }
