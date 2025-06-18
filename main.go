@@ -53,4 +53,15 @@ func main() {
 	fmt.Printf("Letter Case Permutation %v\n", "a1B2")
 	recursive.LetterCasePermutation("", "a1B2")
 
+	fmt.Printf("Balanced Parenthesis for n=3\n")
+	recursive.CreateBalancedParanthesis("", "", 3, 3)
+	fmt.Printf("Is Balanced Parenthesis for string %s\n", "({[]})")
+	fmt.Println(recursive.IsBalancedParanthesis("({[]})"))
+
+	fmt.Printf("Get N bit Binary Number for n=3\n")
+	recursive.NBitBinaryNumber(5, "", 0, 0)
+
+	fmt.Printf("Get last index in josephus problem for n=7 and k=3\n")
+	fmt.Println(recursive.JosepheusProblem(7, 3))
+
 }
