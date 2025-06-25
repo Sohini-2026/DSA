@@ -118,5 +118,13 @@ func main() {
 
 	res = binarySearch.FindElementInBitonicArray([]int{1, 3, 8, 12, 4, 2}, 4)
 	fmt.Println("Element 4 found in bitonic array at index:", res)
+
+	row, col := binarySearch.FindElementInRowColumnSortedMatrix([][]int{
+		{10, 20, 30, 40},
+		{15, 25, 35, 45},
+		{27, 29, 37, 48},
+		{32, 33, 39, 50},
+	}, 29)
+	fmt.Println("Element 29 found in row-column sorted matrix", row, col)
 	//binary search : end
 }
