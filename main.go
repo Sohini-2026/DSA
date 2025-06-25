@@ -5,11 +5,13 @@ import (
 	"sort"
 
 	"github.com/Sohini-2026/DSA/baseDS"
+	"github.com/Sohini-2026/DSA/binarySearch"
 	"github.com/Sohini-2026/DSA/recursive"
 )
 
 func main() {
 
+	//recursion : start
 	fmt.Println("What did u return ?", recursive.Print1ToN(5))
 	recursive.Print1ToN(5)
 	fmt.Println("Fibonacci of 5 is ", recursive.Fibonacci(5))
@@ -64,4 +66,57 @@ func main() {
 	fmt.Printf("Get last index in josephus problem for n=7 and k=3\n")
 	fmt.Println(recursive.JosepheusProblem(7, 3))
 
+	// recursion : end
+
+	//binary search : start
+	fmt.Printf("Binary Search for element 5 in array %v\n", []int{1, 2, 3, 4, 5, 6, 7})
+	res := binarySearch.SearchNumberInSortedArray([]int{1, 2, 3, 4, 5, 6, 7}, 5)
+	fmt.Println("Element found at index:", res)
+	res = binarySearch.SearchNumberInReverseSortedArray([]int{7, 6, 5, 3, 2, 1}, 1)
+	fmt.Println("Element found at index:", res)
+
+	res = binarySearch.SearchNumberWithUnknownSorting([]int{1, 2, 3}, 1)
+	fmt.Println("Element found at index:", res)
+
+	count := binarySearch.FindCountOfOccurrences([]int{1, 2, 3, 4, 5, 5, 5, 6}, 5)
+	fmt.Println("Count of occurrences of 5 is:", count)
+
+	res = binarySearch.CountNoOfTimesArrayIsRotated([]int{6, 7, 1, 2, 3, 4, 5})
+	fmt.Println("Count of times array is rotated is:", res)
+	res = binarySearch.CountNoOfTimesArrayIsRotated([]int{1, 2, 3, 4, 5, 6, 7})
+	fmt.Println("For non rotated array - Count of times array is rotated is:", res)
+
+	//res = binarySearch.CountNoOfTimesArrayIsRotated([]int{7, 6, 5, 4, 3, 2, 1})
+	//fmt.Println("Completely rotated - Count of times array is rotated is:", res)
+
+	res = binarySearch.FindElementInRotatedSortedArray([]int{6, 7, 1, 2, 3, 4, 5}, 3)
+	fmt.Println("Element 3 found at index:", res)
+
+	res = binarySearch.FindElementInNearlySortedArray([]int{5, 10, 30, 20, 40}, 20)
+	fmt.Println("Element 5 found at index:", res)
+
+	res = binarySearch.FindFloorOfElementInSortedArray([]int{1, 2, 3, 4, 8, 10}, 5)
+	fmt.Println("Floor index::", res)
+
+	res = binarySearch.FindCeilOfElementInSortedArray([]int{1, 2, 3, 4, 8, 10}, 5)
+	fmt.Println("Ceil index::", res)
+
+	ress := binarySearch.FindNextAlphabeticalElement([]string{"a", "b", "c", "d"}, "c")
+	fmt.Println("Next alphabetical element after 'c' is:", ress)
+
+	res = binarySearch.FindPositionOfElementInInfiniteSortedArray([]int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20}, 5)
+	fmt.Println("Position of element 5 in infinite sorted array is:", res)
+
+	res = binarySearch.FindIndexOf1InBSInfiniteArray([]int{0, 0, 0, 0, 0, 1, 1, 1, 1})
+	fmt.Println("Index of first 1 in infinite binary sorted array is:", res)
+
+	res = binarySearch.FindMinDiffElementInSortedArray([]int{1, 2, 3, 4, 7, 8, 9}, 5)
+	fmt.Println("Min diff element in sorted array is found", res)
+
+	resArr := binarySearch.FindPeakElement([]int{5, 10, 20, 90, 80})
+	fmt.Printf("Peak element in array is found at index::%+v\n", resArr)
+
+	res = binarySearch.FindElementInBitonicArray([]int{1, 3, 8, 12, 4, 2}, 4)
+	fmt.Println("Element 4 found in bitonic array at index:", res)
+	//binary search : end
 }
