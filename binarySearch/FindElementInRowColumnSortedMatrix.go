@@ -6,7 +6,7 @@ func FindElementInRowColumnSortedMatrix(matrix [][]int, target int) (int, int) {
 	}
 
 	n, m := len(matrix), len(matrix[0])
-	i, j := 0, m-1
+	i, j := 0, m-1 // Start from the top-right corner
 
 	for i >= 0 && i < n && j >= 0 && j < m {
 		if matrix[i][j] == target {
