@@ -6,6 +6,7 @@ import (
 
 	"github.com/Sohini-2026/DSA/baseDS"
 	"github.com/Sohini-2026/DSA/binarySearch"
+	"github.com/Sohini-2026/DSA/dP"
 	"github.com/Sohini-2026/DSA/recursive"
 )
 
@@ -130,4 +131,16 @@ func main() {
 	res = binarySearch.AllocateMinNoOfPages([]int{10, 20, 30, 40}, 2)
 	fmt.Println("Minimum number of pages allocated is:", res)
 	//binary search : end
+
+	// dynamic programming on trees : start
+	root := &baseDS.TreeNode{Value: 1,
+		Left: &baseDS.TreeNode{Value: 2,
+			Left:  &baseDS.TreeNode{Value: 4},
+			Right: &baseDS.TreeNode{Value: 5}},
+		Right: &baseDS.TreeNode{Value: 3,
+			Left:  &baseDS.TreeNode{Value: 6},
+			Right: &baseDS.TreeNode{Value: 7}}}
+	resDiameter := 0
+	dP.DiameterOfBinaryTree(root, &resDiameter)
+	fmt.Println("Diameter of binary tree is:", resDiameter)
 }
