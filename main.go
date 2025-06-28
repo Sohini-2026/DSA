@@ -126,5 +126,8 @@ func main() {
 		{32, 33, 39, 50},
 	}, 29)
 	fmt.Println("Element 29 found in row-column sorted matrix", row, col)
+
+	res = binarySearch.AllocateMinNoOfPages([]int{10, 20, 30, 40}, 2)
+	fmt.Println("Minimum number of pages allocated is:", res)
 	//binary search : end
 }
