@@ -6,8 +6,9 @@ import (
 
 	"github.com/Sohini-2026/DSA/baseDS"
 	"github.com/Sohini-2026/DSA/binarySearch"
-	"github.com/Sohini-2026/DSA/dP"
+	"github.com/Sohini-2026/DSA/dynamicProg"
 	"github.com/Sohini-2026/DSA/recursive"
+	slidingwindow "github.com/Sohini-2026/DSA/slidingWindow"
 )
 
 func main() {
@@ -137,10 +138,41 @@ func main() {
 		Left: &baseDS.TreeNode{Value: 2,
 			Left:  &baseDS.TreeNode{Value: 4},
 			Right: &baseDS.TreeNode{Value: 5}},
+		Right: &baseDS.TreeNode{Value: 3}}
+	// Left:  &baseDS.TreeNode{Value: 6},
+	// Right: &baseDS.TreeNode{Value: 7}}
+
+	resDiameter := 0
+	res = dynamicProg.DiameterOfBinaryTree(root, &resDiameter)
+	fmt.Println("Diameter of binary tree is:", resDiameter, res)
+
+	root1 := &baseDS.TreeNode{Value: 1,
+		Left: &baseDS.TreeNode{Value: 2,
+			Left:  &baseDS.TreeNode{Value: 4},
+			Right: &baseDS.TreeNode{Value: -5}},
 		Right: &baseDS.TreeNode{Value: 3,
 			Left:  &baseDS.TreeNode{Value: 6},
 			Right: &baseDS.TreeNode{Value: 7}}}
-	resDiameter := 0
-	dP.DiameterOfBinaryTree(root, &resDiameter)
-	fmt.Println("Diameter of binary tree is:", resDiameter)
+	res = dynamicProg.MaximumPathSum(root)
+	fmt.Println("Maximum path sum in binary tree is:", res, root1.Value)
+	// dynamic programming on trees : end
+
+	// sliding window : start
+	res = slidingwindow.MaxSumSubArrayOfSizeK1([]int{1, 2, 3, 4, 5, 6, 7}, 3)
+	fmt.Println("Maximum sum of subarray of size 3 is:", res)
+
+	arr = slidingwindow.FindFirstNegativeNumberInAllWindowOfSizeK1([]int{12, -1, -7, 8, -15, 30, 16, 28}, 3)
+	fmt.Printf("First negative number in all windows of size 3 is:%+v", arr)
+
+	res = slidingwindow.CountOccurrenceOfAnagram1("forxxorfxxrof", "for")
+	fmt.Println("Count of occurrences of anagram is:", res)
+
+	resArr1 := slidingwindow.MaxInSubArray1([]int{1, 2, 3, 4, 5, 6, 7}, 3)
+	fmt.Printf("Maximum in subarray of size 3 is:%+v", resArr1)
+
+	resArr1 = slidingwindow.MaxInSubArray1([]int{3, 1, -3, -1, 3, 5, 8}, 3)
+	fmt.Printf("Maximum in subarray of size 3 is:%+v", resArr1)
+
+	resArr1 = slidingwindow.LargestWindowSubArrayOfSumK([]int{4, 1, 1, 1, 2, 3, 5}, 5)
+	fmt.Printf("Largest window subarray of sum 5 is:%+v", resArr1)
 }
