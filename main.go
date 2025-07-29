@@ -7,6 +7,7 @@ import (
 	"github.com/Sohini-2026/DSA/baseDS"
 	"github.com/Sohini-2026/DSA/binarySearch"
 	"github.com/Sohini-2026/DSA/dynamicProg"
+	"github.com/Sohini-2026/DSA/graph"
 	"github.com/Sohini-2026/DSA/recursive"
 	slidingwindow "github.com/Sohini-2026/DSA/slidingWindow"
 )
@@ -175,4 +176,26 @@ func main() {
 
 	resArr1 = slidingwindow.LargestWindowSubArrayOfSumK([]int{4, 1, 1, 1, 2, 3, 5}, 5)
 	fmt.Printf("Largest window subarray of sum 5 is:%+v", resArr1)
+
+	resStr := slidingwindow.LongestSubstringWithKUniqueCharacters("aabacbebebe", 3)
+	fmt.Println("Longest substring with 3 unique characters is:", resStr)
+
+	resStr = slidingwindow.LongestSubstringWithoutRepeatingCharacters("pwwkew")
+	fmt.Println("Longest substring without repeating characters is:", resStr)
+
+	resStr = slidingwindow.MinimumWindowSubstring("ADOBECODEBANC", "ABC")
+	fmt.Println("Minimum window substring is:", resStr)
+
+	// sliding window : end
+
+	// graph : start
+	edges := [][]int{{1, 2}, {1, 3}, {2, 4}, {3, 4}}
+	graphAdjList := graph.CreateGraphAdjacencyList(edges)
+	fmt.Println("Graph Adjacency List:", graphAdjList)
+
+	bfsResult := graph.BreadthFirstTraversal(graphAdjList, 1)
+	fmt.Println("BFS Result starting from node 1:", bfsResult)
+	dfsResult := graph.DepthFirstTraversal(graphAdjList, 1)
+	fmt.Println("DFS Result starting from node 1:", dfsResult)
+	// graph : end
 }
