@@ -29,3 +29,15 @@ func DepthFirstTraversal(graph map[int][]int, start int) []int {
 // Note: The order of traversal may vary based on the graph structure and the order of neighbors in the adjacency list.
 // This DFS implementation assumes an undirected graph. For directed graphs, you can remove the line that appends the reverse edge.
 // This DFS implementation uses an iterative approach with a stack to avoid recursion depth issues in large graphs.
+
+func DepthFirstTraversalRecursive(graph map[int][]int, node int, visited map[int]bool, result *[]int) {
+	if visited[node] {
+		return
+	}
+	visited[node] = true
+	*result = append(*result, node)
+
+	for _, neighbor := range graph[node] {
+		DepthFirstTraversalRecursive(graph, neighbor, visited, result)
+	}
+}

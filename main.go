@@ -197,5 +197,36 @@ func main() {
 	fmt.Println("BFS Result starting from node 1:", bfsResult)
 	dfsResult := graph.DepthFirstTraversal(graphAdjList, 1)
 	fmt.Println("DFS Result starting from node 1:", dfsResult)
+	dfsResultRecursive := []int{}
+	visited := make(map[int]bool)
+	graph.DepthFirstTraversalRecursive(graphAdjList, 1, visited, &dfsResultRecursive)
+	fmt.Println("DFS Recursive Result starting from node 1:", dfsResultRecursive)
+
+	edges1 := [][]int{{1, 2}, {1, 3}, {4, 7}, {5, 7}, {6, 7}}
+	graphAdjList1 := graph.CreateGraphAdjacencyList(edges1)
+	fmt.Println("Graph Adjacency List:", graphAdjList1)
+
+	pathExists := graph.FindIfPathExists(graphAdjList1, 1, 4)
+	fmt.Println("Path exists from 1 to 4:", pathExists)
+	pathExists = graph.FindIfPathExists(graphAdjList1, 4, 6)
+	fmt.Println("Path exists from 4 to 6:", pathExists)
+
+	knightPos := [2]int{4, 5}
+	targetPos := [2]int{1, 1}
+	//n := 6 // Assuming the chessboard is 6x6, adjust indices accordingly
+
+	// src_x, src_y := n-knightPos[0], knightPos[1]-1
+	// dest_x, dest_y := n-targetPos[0], targetPos[1]-1
+
+	steps := graph.MinStepByKnightToReachTarget(knightPos, targetPos)
+	fmt.Printf("Minimum steps for knight to reach target from %v to %v is: %d\n", knightPos, targetPos, steps)
+
+	reOrderedEdges := graph.ReorderRoutes1([][]int{{0, 1}, {1, 3}, {2, 3}, {4, 0}, {4, 5}}, 0)
+	fmt.Println("Reordered edges to make all paths lead to destination:", reOrderedEdges)
+
+	graphAdjList2 := graph.CreateGraphAdjacencyList([][]int{{1, 2}, {2, 3}, {3, 4}, {4, 5}, {5, 1}})
+	cycleExists := graph.IsCycleInUndirectedGraph(graphAdjList2)
+	fmt.Println("Cycle exists in the graph:", cycleExists)
+
 	// graph : end
 }
