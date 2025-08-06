@@ -225,8 +225,28 @@ func main() {
 	fmt.Println("Reordered edges to make all paths lead to destination:", reOrderedEdges)
 
 	graphAdjList2 := graph.CreateGraphAdjacencyList([][]int{{1, 2}, {2, 3}, {3, 4}, {4, 5}, {5, 1}})
-	cycleExists := graph.IsCycleInUndirectedGraph(graphAdjList2)
-	fmt.Println("Cycle exists in the graph:", cycleExists)
+	fmt.Printf("Graph Adjacency List for cycle detection: %v\n", graphAdjList2)
+	isCycleDetected := graph.IsCycleInUndirectedGraph(graphAdjList2)
+	fmt.Println("Cycle exists in the graph:", isCycleDetected)
+
+	cycleExists := graph.IsCycleInUndirectedGraphByBFS(graphAdjList2)
+	fmt.Println("Cycle exists in the graph using BFS:", cycleExists)
+
+	graphAdjList3 := graph.CreateDirectedGraphAdjacencyList([][]int{{1, 2}, {2, 3}, {3, 4}, {4, 2}})
+	//([][]int{{1, 2}, {2, 3}, {3, 4}, {2, 4}}) -> cycle doesnt exist
+	fmt.Printf("Graph Adjacency List for cycle detection: %v\n", graphAdjList3)
+	isCycleDetected = graph.IsCycleInDirectedGraphByDFS(graphAdjList3)
+	fmt.Println("Cycle exists in the directed graph:", isCycleDetected)
+
+	graphAdjList4 := graph.CreateDirectedGraphAdjacencyList([][]int{{1, 4}, {4, 5}, {5, 2}, {2, 1}, {3, 2}})
+	//([][]int{{1, 2}, {2, 3}, {3, 4}, {2, 4}})-> safe nodes exist
+	//([][]int{{1, 4}, {4,5}, {5,2}, {2, 1},{3,2}}) -> special case
+	fmt.Printf("Graph Adjacency List for cycle detection: %v\n", graphAdjList4)
+	safeNodes := graph.FindSafeNodes(graphAdjList4)
+	fmt.Println("Safe nodes in the directed graph:", safeNodes)
+
+	longestCycleLength := graph.FindLongestcycle(graphAdjList4)
+	fmt.Println("Longest cycle in the directed graph:", longestCycleLength)
 
 	// graph : end
 }
