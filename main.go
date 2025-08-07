@@ -248,5 +248,11 @@ func main() {
 	longestCycleLength := graph.FindLongestcycle(graphAdjList4)
 	fmt.Println("Longest cycle in the directed graph:", longestCycleLength)
 
+	graphAdjList5 := graph.CreateDirectedGraphAdjacencyList([][]int{{1, 3}, {2, 3}, {3, 4}, {3, 5}, {6, 5}, {4, 7}, {5, 7}})
+	sortedOrder := graph.TopologicalSortUsingBFS(graphAdjList5)
+	fmt.Println("Topological Sort using BFS:", sortedOrder)
+
+	sortedOrder = graph.TopologicalSortUsingDFS(graphAdjList5)
+	fmt.Println("Topological Sort using DFS:", sortedOrder)
 	// graph : end
 }

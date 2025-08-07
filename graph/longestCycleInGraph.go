@@ -1,5 +1,7 @@
 package graph
 
+import "fmt"
+
 func FindLongestcycle(graph map[int][]int) int {
 	visited := make(map[int]bool)
 	recStack := make(map[int]bool)
@@ -7,7 +9,7 @@ func FindLongestcycle(graph map[int][]int) int {
 
 	for node := range graph {
 		if !visited[node] {
-			cycleLength := dfsFindLongestCycle(graph, node, visited, recStack, 0)
+			cycleLength := dfsFindLongestCycle(graph, node, visited, recStack, make(map[int]int), 0)
 			if cycleLength > longestCycle {
 				longestCycle = cycleLength
 			}
@@ -16,26 +18,30 @@ func FindLongestcycle(graph map[int][]int) int {
 
 	return longestCycle
 }
-func dfsFindLongestCycle(graph map[int][]int, node int, visited map[int]bool, recStack map[int]bool, length int) int {
+func dfsFindLongestCycle(graph map[int][]int, node int, visited map[int]bool, recStack map[int]bool, pathIndex map[int]int, length int) int {
 	visited[node] = true
 	recStack[node] = true
+	pathIndex[node] = length
 	maxCycleLength := 0
+
+	fmt.Printf("Visiting node: %d, current path length: %d\n,pathIndex::%+v", node, length, pathIndex)
 
 	for _, neighbor := range graph[node] {
 		if !visited[neighbor] {
-			cycleLength := dfsFindLongestCycle(graph, neighbor, visited, recStack, length+1)
+			cycleLength := dfsFindLongestCycle(graph, neighbor, visited, recStack, pathIndex, length+1)
 			if cycleLength > maxCycleLength {
 				maxCycleLength = cycleLength
 			}
 		} else if recStack[neighbor] {
-			// Found a back edge indicating a cycle
-			cycleLength := length + 1 // Include the current node in the cycle length
+			cycleLength := length - pathIndex[neighbor] + 1
+			fmt.Printf("Cycle detected from node %d to %d with length %d\n", neighbor, node, cycleLength)
 			if cycleLength > maxCycleLength {
 				maxCycleLength = cycleLength
 			}
 		}
 	}
 
-	recStack[node] = false // Remove the node from recursion stack
+	recStack[node] = false
+	delete(pathIndex, node)
 	return maxCycleLength
 }
