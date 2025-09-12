@@ -254,5 +254,65 @@ func main() {
 
 	sortedOrder = graph.TopologicalSortUsingDFS(graphAdjList5)
 	fmt.Println("Topological Sort using DFS:", sortedOrder)
+
+	sortedOrder = graph.FindNoOfCourses(4, [][]int{{1, 0}, {2, 1}, {3, 2}})
+	fmt.Println("Course order to finish all courses:", sortedOrder)
+
+	maxColorPath := graph.FindLargestColorValue("abaca", [][]int{{0, 1}, {0, 2}, {2, 3}, {3, 4}})
+	fmt.Println("Maximum color path length in the graph:", maxColorPath)
+
+	filleDImage := graph.FloodFill([][]int{{0, 0, 0}, {0, 1, 1}, {0, 0, 0}}, 1, 1, 2)
+	fmt.Println("Flood filled image:", filleDImage)
+
+	filleDImage = graph.FloodFillBFS([][]int{{0, 0, 0}, {0, 1, 1}, {0, 0, 0}}, 1, 1, 2)
+	fmt.Println("Flood filled image using BFS:", filleDImage)
+
+	noOfIslands := graph.NoOfIslands([][]int{
+		{1, 1, 0, 0, 0},
+		{1, 1, 0, 1, 1},
+		{0, 0, 0, 0, 0},
+		{0, 1, 1, 0, 1},
+		{1, 0, 0, 1, 1},
+	})
+	fmt.Println("Number of islands in the grid:", noOfIslands)
+
+	minTime := graph.RottingOranges([][]int{
+		{2, 1, 0, 2, 1},
+		{1, 0, 1, 2, 1},
+		{1, 0, 0, 2, 1},
+	})
+
+	fmt.Println("Minimum time required to rot all oranges is:", minTime)
+
+	villageDistance := graph.GeeksVillage(5, 5, [][]byte{
+		{'H', 'H', 'H', 'H', 'H'},
+		{'H', 'N', 'H', 'W', 'H'},
+		{'H', 'H', 'H', 'H', 'H'},
+		{'H', 'W', 'H', 'N', 'H'},
+		{'H', 'H', 'H', 'H', 'H'},
+	})
+	fmt.Println("Distance of each house from nearest well in village is:", villageDistance)
+
+	conn := graph.MakeConnected(4, [][]int{{0, 1}, {0, 2}, {1, 2}})
+	fmt.Println("Minimum number of operations to connect all computers is:", conn)
+
+	moves := graph.SnakesAndLadders([][]int{
+		{-1, -1, -1, -1, -1, -1},
+		{-1, -1, -1, -1, -1, -1},
+		{-1, -1, -1, -1, -1, -1},
+		{-1, 35, -1, -1, 13, -1},
+		{-1, -1, -1, -1, -1, -1},
+		{-1, 15, -1, -1, -1, -1},
+	})
+
+	fmt.Println("Minimum number of moves to reach end in Snakes and Ladders is:", moves)
+
+	// Finding shortest path using Dijkstra's algorithm
+	graphAdjListWithWeights := graph.CreateGraphAdjacencyListWithWeights([][]int{{1, 2, 1}, {1, 3, 4}, {2, 3, 2}, {3, 4, 1}, {2, 4, 5}})
+	fmt.Println("Graph Adjacency List with weights:", graphAdjListWithWeights)
+	shortestPaths, distance := graph.DijkstraAlgoWithPath(graphAdjListWithWeights, 1, 4)
+	fmt.Println("Shortest paths from node 1 using Dijkstra's algorithm:", shortestPaths, distance)
 	// graph : end
+
+	//map[1:0 2:1 3:3 4:4]
 }
