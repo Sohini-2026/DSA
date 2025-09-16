@@ -312,7 +312,12 @@ func main() {
 	fmt.Println("Graph Adjacency List with weights:", graphAdjListWithWeights)
 	shortestPaths, distance := graph.DijkstraAlgoWithPath(graphAdjListWithWeights, 1, 4)
 	fmt.Println("Shortest paths from node 1 using Dijkstra's algorithm:", shortestPaths, distance)
+
+	minEffort := graph.MinimumEffortPath([][]int{{1, 2, 2}, {3, 8, 2}, {5, 3, 5}})
+	fmt.Println("Minimum effort path in the grid is:", minEffort)
+
+	cheapestFlightCost := graph.CheapestFlight(3, [][]int{{0, 1, 100}, {1, 2, 100}, {0, 2, 500}}, 0, 2, 1)
+	fmt.Println("Cheapest flight cost from source to destination with at most K stops is:", cheapestFlightCost)
 	// graph : end
 
-	//map[1:0 2:1 3:3 4:4]
 }
