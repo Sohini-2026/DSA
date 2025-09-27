@@ -25,3 +25,7 @@ func (s *Stack) Top() int {
 	}
 	return s.Items[len(s.Items)-1]
 }
+
+func (s *Stack) Size() int {
+	return len(s.Items)
+}

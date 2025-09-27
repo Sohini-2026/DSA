@@ -8,8 +8,10 @@ import (
 	"github.com/Sohini-2026/DSA/binarySearch"
 	"github.com/Sohini-2026/DSA/dynamicProg"
 	"github.com/Sohini-2026/DSA/graph"
+	"github.com/Sohini-2026/DSA/heapUtil"
 	"github.com/Sohini-2026/DSA/recursive"
 	slidingwindow "github.com/Sohini-2026/DSA/slidingWindow"
+	"github.com/Sohini-2026/DSA/stackUtil"
 )
 
 func main() {
@@ -320,4 +322,48 @@ func main() {
 	fmt.Println("Cheapest flight cost from source to destination with at most K stops is:", cheapestFlightCost)
 	// graph : end
 
+	// heap : start
+
+	kthSmallestElement, err := heapUtil.KthSmallest([]int{7, 10, 4, 3, 20, 15}, 3)
+	fmt.Println("Kth smallest element in the array is:", kthSmallestElement, err)
+
+	kthLargestElement, err := heapUtil.KthLargest([]int{7, 10, 4, 3, 20, 15}, 3)
+	fmt.Println("Kth largest element in the array is:", kthLargestElement, err)
+
+	sortedArray, err := heapUtil.KSortedArray([]int{6, 5, 3, 2, 8, 10, 9}, 3)
+	fmt.Println("Sorted array from k sorted array is:", sortedArray, err)
+
+	//closestElem, err := heapUtil.KClosestElements([]int{5, 6, 7, 8, 9}, 7, 3)
+	//Input : arr[] = {10, 2, 14, 4, 7, 6}, x = 5, k = 3 .
+	closestElem, err := heapUtil.KClosestElements([]int{10, 2, 14, 4, 7, 6}, 5, 3)
+	fmt.Println("K closest elements to given element in the array are:", closestElem, err)
+
+	topKFreqNos, err := heapUtil.TopKFrequentNumbers([]int{5, 2, 1, 1, 1, 3, 2}, 2)
+	fmt.Println("Top K frequent numbers in the array are:", topKFreqNos, err)
+
+	frequencySorted, err := heapUtil.FrequencySort([]int{5, 2, 1, 1, 1, 3, 2})
+	fmt.Println("Frequency sorted array is:", frequencySorted, err)
+
+	closestPoints, err := heapUtil.KClosestPointsToOrigin([][]int{{1, 3}, {-2, 2}, {5, 8}, {0, 1}}, 2)
+	fmt.Println("K closest points to origin are:", closestPoints, err)
+	//[]int{4, 3, 2, 6}
+	minCost := heapUtil.MinCostToConnectRopes([]int{1, 2, 3, 4, 5})
+	fmt.Println("Minimum cost to connect ropes is:", minCost)
+	//20, 8, 22, 4, 12, 10, 14
+	sum, err := heapUtil.SumOfElementsBetweenKthSmallestElements([]int{1, 3, 12, 5, 15, 11}, 3, 6)
+	fmt.Println("Sum of elements between kth smallest elements is:", sum, err)
+	// heap : end
+
+	//stack : start
+	nextGreaterToRight := stackUtil.NextGreaterToRight([]int{4, 5, 2, 10})
+	fmt.Printf("Next greater to right for each element in the array is: %+v", nextGreaterToRight)
+
+	nextGreaterToLeft := stackUtil.NextGreaterToLeft([]int{4, 5, 2, 10})
+	fmt.Printf("Next greater to left for each element in the array is: %+v", nextGreaterToLeft)
+
+	nextSmallerToRight := stackUtil.NextSmallerToRight([]int{4, 5, 2, 10})
+	fmt.Printf("Next smaller to right for each element in the array is: %+v", nextSmallerToRight)
+
+	nextSmallerToLeft := stackUtil.NextSmallerToLeft([]int{4, 5, 2, 10})
+	fmt.Printf("Next smaller to left for each element in the array is: %+v", nextSmallerToLeft)
 }
