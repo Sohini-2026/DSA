@@ -366,4 +366,24 @@ func main() {
 
 	nextSmallerToLeft := stackUtil.NextSmallerToLeft([]int{4, 5, 2, 10})
 	fmt.Printf("Next smaller to left for each element in the array is: %+v", nextSmallerToLeft)
+
+	stockSpan := stackUtil.StockSpan([]int{100, 80, 60, 70, 60, 75, 85})
+	fmt.Printf("Stock span for each day is: %+v", stockSpan)
+
+	maxArea := stackUtil.MaximumAreaHistogram([]int{6, 2, 5, 4, 5, 1, 6})
+	fmt.Printf("Maximum area of histogram is: %d", maxArea)
+
+	maxArea = stackUtil.MaximumAreaRectangleInBinaryMatrix([][]int{
+		{0, 1, 1, 0},
+		{1, 1, 1, 1},
+		{1, 1, 1, 1},
+		{1, 0, 0, 1},
+	})
+
+	fmt.Printf("Maximum area of rectangle in binary matrix is: %d", maxArea)
+
+	maxWaterTrapped := stackUtil.RainWaterTrapping([]int{3, 0, 0, 2, 0, 4})
+	//0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1})
+	fmt.Printf("Maximum water trapped is: %d", maxWaterTrapped)
+	//stack : end
 }
