@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"sort"
 
+	backtracking "github.com/Sohini-2026/DSA/backTracking"
 	"github.com/Sohini-2026/DSA/baseDS"
 	"github.com/Sohini-2026/DSA/binarySearch"
 	"github.com/Sohini-2026/DSA/dynamicProg"
@@ -385,5 +386,59 @@ func main() {
 	maxWaterTrapped := stackUtil.RainWaterTrapping([]int{3, 0, 0, 2, 0, 4})
 	//0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1})
 	fmt.Printf("Maximum water trapped is: %d", maxWaterTrapped)
+	fmt.Println("/n")
 	//stack : end
+
+	//backtracking : start
+	permutations := backtracking.PermuteStrings([]string{"a", "b", "c"})
+	fmt.Printf("All permutations of array are: %+v", permutations)
+
+	max := backtracking.FindLargestNumberAfterKSwaps("1234567", 4)
+	fmt.Printf("Largest number after k swaps is: %s", max)
+	max = backtracking.FindLargestNumberAfterKSwaps("721", 2)
+	fmt.Printf("Largest number after k swaps is: %s", max)
+
+	increasingNums := backtracking.PrintNDigitNumbersWithIncreasingOrder(2)
+	fmt.Printf("N digit numbers with increasing order are: %+v", increasingNums)
+
+	path := backtracking.FindPathInMaze([][]int{
+		{1, 0, 0, 0},
+		{1, 1, 0, 1},
+		{1, 1, 0, 0},
+		{0, 1, 1, 1},
+	}, 4)
+	fmt.Printf("Path in maze is: %+v", path)
+
+	allPossibleSubstrings := backtracking.PrintAllPossiblePalindromicSubstrings("aab")
+	fmt.Printf("All possible palindromic substrings are: %+v", allPossibleSubstrings)
+
+	wordBreakSentences := backtracking.WordBreak("catsanddog", []string{"cat", "cats", "and", "sand", "dog"})
+
+	fmt.Print("All possible word break sentences are: ")
+	for _, sentence := range wordBreakSentences {
+		fmt.Printf("(%s)", sentence)
+	}
+	fmt.Println()
+
+	letterCombo := backtracking.LetterCombinationsOfPhoneNumber("23")
+	fmt.Printf("Letter combinations of phone number are: %+v", letterCombo)
+
+	queensRes := backtracking.NQueens(4)
+	fmt.Printf("All possible arrangements of N queens are: %+v", queensRes)
+
+	sudokuBoard := [][]byte{
+		{5, 3, 0, 0, 7, 0, 0, 0, 0},
+		{6, 0, 0, 1, 9, 5, 0, 0, 0},
+		{0, 9, 8, 0, 0, 0, 0, 6, 0},
+		{8, 0, 0, 0, 6, 0, 0, 0, 3},
+		{4, 0, 0, 8, 0, 3, 0, 0, 1},
+		{7, 0, 0, 0, 2, 0, 0, 0, 6},
+		{0, 6, 0, 0, 0, 0, 2, 8, 0},
+		{0, 0, 0, 4, 1, 9, 0, 0, 5},
+		{0, 0, 0, 0, 8, 0, 0, 7, 9},
+	}
+	backtracking.SolveSudoku(sudokuBoard)
+	fmt.Printf("Solved Sudoku board is: %+v", sudokuBoard)
+	fmt.Println()
+	//backtracking : end
 }
