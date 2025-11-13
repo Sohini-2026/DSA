@@ -1,0 +1,25 @@
+package dynamicProg
+
+/*
+Given an array Arr[] and a difference diff, find the number of subsets that array can be divided so that each the difference between the two subset is the given diff.
+
+Example1:
+Input:
+Arr[] : 1,1,2,3
+diff: 1
+Output: 3 .
+*/
+
+func CountOfSubSetSumWithDiff(arr []int, diff int) int {
+	totalSum := 0
+	for _, num := range arr {
+		totalSum += num
+	}
+
+	if (totalSum+diff)%2 != 0 {
+		return 0
+	}
+
+	target := (totalSum + diff) / 2
+	return CountOfSubsetSums(arr, target)
+}

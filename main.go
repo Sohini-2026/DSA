@@ -441,4 +441,32 @@ func main() {
 	fmt.Printf("Solved Sudoku board is: %+v", sudokuBoard)
 	fmt.Println()
 	//backtracking : end
+
+	//dynamic programming : start
+	subSetExists := dynamicProg.SubsetSum([]int{2, 3, 7, 8, 10}, 11)
+	fmt.Println("Subset with given sum exists:", subSetExists)
+
+	equalSumPartionExists := dynamicProg.EqualSumPartition([]int{1, 5, 11, 5})
+	fmt.Println("Equal sum partition exists:", equalSumPartionExists)
+
+	countOfSubsets := dynamicProg.CountOfSubsetSums([]int{2, 3, 5, 6, 8, 10}, 10)
+	fmt.Println("Count of subset sums with given sum is:", countOfSubsets)
+
+	minDiff := dynamicProg.MinSubsetSumDifference([]int{1, 6, 11, 5})
+	fmt.Println("Minimum subset sum difference is:", minDiff)
+
+	maxProfit := dynamicProg.RodCuttingProblem([]int{1, 5, 8, 9, 10, 17, 17, 20}, 8)
+	fmt.Println("Maximum profit from rod cutting is:", maxProfit)
+
+	lengthOfLCS := dynamicProg.LongestCommonSubSequence("AGGTAB", "GXTXAYB")
+	fmt.Println("Length of Longest Common Subsequence is:", lengthOfLCS)
+
+	lcs := dynamicProg.PrintLongestCommonSubsequence("AGGTAB", "GXTXAYB")
+	fmt.Println("Longest Common Subsequence is:", lcs)
+
+	lengthOfLongestCommonSubstring := dynamicProg.LongestCommonSubstring("ABABC", "BABCAB")
+	fmt.Println("Length of Longest Common Substring is:", lengthOfLongestCommonSubstring)
+
+	//dynamic programming : end
+
 }
