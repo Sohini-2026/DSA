@@ -467,6 +467,24 @@ func main() {
 	lengthOfLongestCommonSubstring := dynamicProg.LongestCommonSubstring("ABABC", "BABCAB")
 	fmt.Println("Length of Longest Common Substring is:", lengthOfLongestCommonSubstring)
 
+	lengthOfLongestRepeatingSubSequence := dynamicProg.LongestRepeatingSubSequence("ATACTCGGA")
+	fmt.Println("Length of Longest Repeating Subsequence is:", lengthOfLongestRepeatingSubSequence)
+
+	shortestSuperSequence := dynamicProg.PrintShortestSuperSequence("AGGTAB", "GXTXAYB")
+	fmt.Println("Shortest Super Sequence is:", shortestSuperSequence)
+
+	IsSubsequence := dynamicProg.IsSubsequenceDP("AXY", "ADXCPY")
+	fmt.Println("Is subsequence using DP:", IsSubsequence)
+
+	sizeOfLongestPalindromicSubSequence := dynamicProg.LongestPalindromicSubsequence("BBABCBCAB")
+	fmt.Println("Size of Longest Palindromic Subsequence is:", sizeOfLongestPalindromicSubSequence)
+
+	ins, del := dynamicProg.MinNoOfInsAndDelFromAToBString("heap", "pea")
+	fmt.Println("Minimum number of insertions and deletions to convert A to B are:", ins, del)
+
+	ins, del = dynamicProg.MinNoOfInsAndDelToMakeStringPalindromic("abcda")
+	fmt.Println("Minimum number of insertions and deletions to make string palindromic are:", ins, del)
+
 	//dynamic programming : end
 
 }

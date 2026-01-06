@@ -25,19 +25,18 @@ func FloodFill(image [][]int, sr int, sc int, color int) [][]int {
 	rows, cols := len(image), len(image[0])
 	directions := [][2]int{{0, 1}, {1, 0}, {0, -1}, {-1, 0}} // Right, Down, Left, Up
 
-	var dfs func(r int, c int)
-	dfs = func(r int, c int) {
-		if r < 0 || r >= rows || c < 0 || c >= cols || image[r][c] != originalColor {
-			return
-		}
-		image[r][c] = color // Change the color
-		for _, dir := range directions {
-			dfs(r+dir[0], c+dir[1]) // Explore neighbors
-		}
-	}
-
-	dfs(sr, sc)
+	dfsFloodFill(sr, rows, sc, cols, image, originalColor, color, directions)
 	return image
+}
+
+func dfsFloodFill(r, rows, c, cols int, image [][]int, originalColor, color int, directions [][2]int) {
+	if r < 0 || r >= rows || c < 0 || c >= cols || image[r][c] != originalColor {
+		return
+	}
+	image[r][c] = color // Change the color
+	for _, dir := range directions {
+		dfsFloodFill(r+dir[0], rows, c+dir[1], cols, image, originalColor, color, directions)
+	}
 }
 
 func FloodFillBFS(image [][]int, sr int, sc int, color int) [][]int {
